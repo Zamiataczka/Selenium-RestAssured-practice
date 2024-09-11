@@ -1,4 +1,4 @@
-package FrontEnd_POM;
+package front_end_pom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;

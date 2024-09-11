@@ -1,4 +1,4 @@
-package BackEnd_API.Serialization;
+package back_end_api.serialization;
 
 public class Login {
     private String email;

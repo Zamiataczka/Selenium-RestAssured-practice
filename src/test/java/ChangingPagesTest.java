@@ -1,8 +1,7 @@
-import BackEnd_API.Serialization.User;
-import FrontEnd_POM.LoginPage;
-import FrontEnd_POM.MainPage;
-import FrontEnd_POM.UserProfilePage;
-import Settings.BrowserSetUp;
+import front_end_pom.LoginPage;
+import front_end_pom.MainPage;
+import front_end_pom.UserProfilePage;
+import settings.BrowserSetUp;
 import io.qameta.allure.junit4.DisplayName;
 import jdk.jfr.Description;
 import org.junit.Assert;

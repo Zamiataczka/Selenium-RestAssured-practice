@@ -1,8 +1,5 @@
-import BackEnd_API.Serialization.User;
-import FrontEnd_POM.LoginPage;
-import FrontEnd_POM.MainPage;
-import FrontEnd_POM.RegisterPage;
-import Settings.BrowserSetUp;
+import back_end_api.serialization.User;
+import front_end_pom.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;

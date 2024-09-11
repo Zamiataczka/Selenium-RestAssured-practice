@@ -1,10 +1,10 @@
-package FrontEnd_POM;
+package front_end_pom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static ConstantsURL.Constants.MAIN_URL;
+import static constants_url.Constants.MAIN_URL;
 
 public class MainPage {
     private final WebDriver driver;

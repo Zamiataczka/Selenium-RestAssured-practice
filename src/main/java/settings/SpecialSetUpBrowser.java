@@ -1,9 +1,8 @@
-package Settings;
+package settings;
 
-import BackEnd_API.AllureSteps.UserSteps;
-import BackEnd_API.Serialization.User;
+import back_end_api.allure_steps.UserSteps;
+import back_end_api.serialization.User;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -12,26 +11,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class BrowserSetUp {
+import static constants_url.Constants.REGISTER_PAGE_URL;
+
+public class SpecialSetUpBrowser {
     public WebDriver driver;
-    public UserSteps userSteps;
     public User user;
-    public String accessToken;
+    String accessToken;
 
     @Before
-    public void setUpDriver() {
+    public void specialSetUp() {
         String driverType = System.getenv("WEB_DRIVER");
         driver = getDriver(driverType == null ? "chrome" : driverType);
-        driver.get("https://stellarburgers.nomoreparties.site/");
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        user = new User("goslingR1452@gmail.ru", "123456", "Gosling");
-        userSteps = new UserSteps();
-        ValidatableResponse validatableResponse = userSteps.createUser(user);
-        accessToken = userSteps.getAccessToken(validatableResponse);
+        driver.get(REGISTER_PAGE_URL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @After
     public void close() {
+        UserSteps userSteps = new UserSteps();
         userSteps.deleteAfterTest(accessToken);
         driver.quit();
     }

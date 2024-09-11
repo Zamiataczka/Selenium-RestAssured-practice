@@ -1,11 +1,11 @@
-package FrontEnd_POM;
+package front_end_pom;
 
-import BackEnd_API.Serialization.User;
+import back_end_api.serialization.User;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static ConstantsURL.Constants.REGISTER_PAGE_URL;
+import static constants_url.Constants.REGISTER_PAGE_URL;
 
 public class RegisterPage {
     private final WebDriver driver;

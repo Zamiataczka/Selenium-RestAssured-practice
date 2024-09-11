@@ -1,10 +1,10 @@
-package BackEnd_API;
+package back_end_api;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static ConstantsURL.Constants.MAIN_URL;
+import static constants_url.Constants.MAIN_URL;
 
 public class SpecificationSetUp {
     protected RequestSpecification getSpec() {

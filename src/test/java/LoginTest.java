@@ -1,8 +1,8 @@
-import FrontEnd_POM.LoginPage;
-import FrontEnd_POM.MainPage;
-import FrontEnd_POM.PassRecoPage;
-import FrontEnd_POM.RegisterPage;
-import Settings.BrowserSetUp;
+import front_end_pom.LoginPage;
+import front_end_pom.MainPage;
+import front_end_pom.PassRecoPage;
+import front_end_pom.RegisterPage;
+import settings.BrowserSetUp;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;

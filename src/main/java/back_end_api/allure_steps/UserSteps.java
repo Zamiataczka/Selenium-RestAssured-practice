@@ -1,13 +1,13 @@
-package BackEnd_API.AllureSteps;
+package back_end_api.allure_steps;
 
 
-import BackEnd_API.Serialization.Login;
-import BackEnd_API.Serialization.User;
-import BackEnd_API.SpecificationSetUp;
+import back_end_api.serialization.Login;
+import back_end_api.serialization.User;
+import back_end_api.SpecificationSetUp;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
-import static ConstantsURL.Constants.*;
+import static constants_url.Constants.*;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.requestSpecification;
 

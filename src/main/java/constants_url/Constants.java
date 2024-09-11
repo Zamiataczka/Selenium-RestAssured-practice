@@ -1,4 +1,4 @@
-package ConstantsURL;
+package constants_url;
 
 public class Constants {
     public static final String MAIN_URL = "https://stellarburgers.nomoreparties.site/";
