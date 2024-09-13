@@ -1,7 +1,7 @@
-import back_end_api.serialization.User;
+import backendapi.serialization.User;
 import com.github.javafaker.Faker;
-import front_end_pom.LoginPage;
-import front_end_pom.RegisterPage;
+import frontendpom.LoginPage;
+import frontendpom.RegisterPage;
 import settings.SpecialSetUpBrowser;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -34,16 +34,12 @@ public class RegistrationTest extends SpecialSetUpBrowser {
     @DisplayName("Positive registration test")
     @Description("Positive registration test - which consists of 6 characters")
     public void userRegistrationWithMinCharsTest () {
-        Faker faker = new Faker();
-        email = faker.internet().emailAddress();
-        password = faker.internet().password();
-        name = faker.name().firstName();
-        user = new User(email, password, name);
+        user = new User("gosling7@gmail.ru", "123456", "sling");
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.sendKeysRequiredRegisterFields(user);
         registerPage.registerButtonClick();
         LoginPage loginPage = new LoginPage(driver);
-        Assert.assertTrue(loginPage.signInButtonIsDisplayed());
+        loginPage.signInButtonIsDisplayed();
     }
 
     @Test

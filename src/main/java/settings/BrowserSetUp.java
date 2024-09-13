@@ -1,7 +1,7 @@
 package settings;
 
-import back_end_api.allure_steps.UserSteps;
-import back_end_api.serialization.User;
+import backendapi.alluresteps.UserSteps;
+import backendapi.serialization.User;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static constants_url.Constants.MAIN_URL;
+import static constantsurl.Constants.MAIN_URL;
 
 public class BrowserSetUp {
     public WebDriver driver;
@@ -35,8 +35,15 @@ public class BrowserSetUp {
 
     @After
     public void close() {
-        userSteps.deleteAfterTest(accessToken);
         driver.quit();
+        if (user != null) {
+            ValidatableResponse responseLogin = userSteps.loginUser(user);
+            accessToken = responseLogin.extract().path("accessToken");
+            if (accessToken == null) {
+                return;
+            }
+            userSteps.deleteAfterTest(accessToken);
+        }
     }
 
     private WebDriver getDriver(String driverType) {

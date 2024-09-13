@@ -1,4 +1,4 @@
-package front_end_pom;
+package frontendpom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -29,8 +29,4 @@ public class UserProfilePage {
         driver.findElement(logoButton).click();
     }
 
-    @Step ("Make sure logoButton is displayed")
-    public boolean logoButtonDisplayed() {
-        return driver.findElement(logoButton).isDisplayed();
-    }
 }

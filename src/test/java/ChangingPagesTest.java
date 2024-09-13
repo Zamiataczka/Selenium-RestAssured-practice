@@ -1,6 +1,6 @@
-import front_end_pom.LoginPage;
-import front_end_pom.MainPage;
-import front_end_pom.UserProfilePage;
+import frontendpom.LoginPage;
+import frontendpom.MainPage;
+import frontendpom.UserProfilePage;
 import settings.BrowserSetUp;
 import io.qameta.allure.junit4.DisplayName;
 import jdk.jfr.Description;

@@ -1,10 +1,10 @@
-package front_end_pom;
+package frontendpom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static constants_url.Constants.RECO_PASS_URL;
+import static constantsurl.Constants.RECO_PASS_URL;
 
 public class PassRecoPage {
     private final By signInButton = By.xpath(".//a[text()='Войти']");

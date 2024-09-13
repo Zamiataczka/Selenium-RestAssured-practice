@@ -1,8 +1,9 @@
 package settings;
 
-import back_end_api.allure_steps.UserSteps;
-import back_end_api.serialization.User;
+import backendapi.alluresteps.UserSteps;
+import backendapi.serialization.User;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +12,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static constants_url.Constants.REGISTER_PAGE_URL;
+import static constantsurl.Constants.REGISTER_PAGE_URL;
 
 public class SpecialSetUpBrowser {
     public WebDriver driver;
     public User user;
+    public UserSteps userSteps;
     String accessToken;
 
     @Before
@@ -24,13 +26,20 @@ public class SpecialSetUpBrowser {
         driver = getDriver(driverType == null ? "chrome" : driverType);
         driver.get(REGISTER_PAGE_URL);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        userSteps = new UserSteps();
     }
 
     @After
     public void close() {
-        UserSteps userSteps = new UserSteps();
-        userSteps.deleteAfterTest(accessToken);
         driver.quit();
+        if (user != null) {
+            ValidatableResponse responseLogin = userSteps.loginUser(user);
+            accessToken = responseLogin.extract().path("accessToken");
+            if (accessToken == null) {
+                return;
+            }
+            userSteps.deleteAfterTest(accessToken);
+        }
     }
 
     private WebDriver getDriver(String driverType) {

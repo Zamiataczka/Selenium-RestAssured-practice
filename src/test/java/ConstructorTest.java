@@ -1,5 +1,5 @@
-import back_end_api.serialization.User;
-import front_end_pom.MainPage;
+import backendapi.serialization.User;
+import frontendpom.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
